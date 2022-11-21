@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "54949019770",
+    "project_id": "temp-90051",
+    "storage_bucket": "temp-90051.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54949019770:android:683a32ec4ddb7cf7257bc3",
+        "android_client_info": {
+          "package_name": "com.ssafy.temproom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54949019770-h2ec7qomh48nonojs816t6v0rjcoqc7i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBinmDzbuHpecaCG3uVVsJWefM3ny_MKxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54949019770-h2ec7qomh48nonojs816t6v0rjcoqc7i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
