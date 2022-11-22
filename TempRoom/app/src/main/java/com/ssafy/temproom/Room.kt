@@ -16,6 +16,8 @@ data class Room(
     var time: Float = 1F,
     // 범인
     var lair: String = "",
+    // 채팅 내용
+    var messages: ArrayList<ChattingItem> = ArrayList<ChattingItem>()
 ) {
     val p = ArrayList<String>()
     val t = ArrayList<String>()

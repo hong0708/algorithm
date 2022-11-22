@@ -9,7 +9,7 @@ import com.ssafy.temproom.databinding.ItemListBinding
 
 private const val TAG = "RoomAdapter_싸피"
 
-class RoomAdapter(val list: MutableList<Room>, val name: String) :
+class RoomAdapter(val list: MutableList<Room>/*, val name: String*/) :
     RecyclerView.Adapter<RoomAdapter.RoomHolder>() {
 
     inner class RoomHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

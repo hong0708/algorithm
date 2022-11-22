@@ -1,8 +1,10 @@
 package com.ssafy.temproom
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.ChildEventListener
@@ -40,6 +42,8 @@ class SecondActivity : AppCompatActivity() {
         people.add("2")
         people.add("3")
 
+        val message = ArrayList<ChattingItem>()
+
         val data = ArrayList<Room>()
         data.add(
             Room(
@@ -54,18 +58,26 @@ class SecondActivity : AppCompatActivity() {
             )
         )
 
-        roomAdapter = RoomAdapter(roomList, id)
+        roomAdapter = RoomAdapter(roomList)
+        roomAdapter.setItemClickListener(object : RoomAdapter.ItemClickListener {
+            override fun onClick(view: View, position: Int, roomTitle: String) {
+                val intent = Intent(this@SecondActivity, ChatActivity::class.java)
+                intent.putExtra("roomId", roomTitle)
+                intent.putExtra("myId", id)
+                startActivity(intent)
+            }
+        })
+
         binding.roomRecyclerView.apply {
             adapter = roomAdapter
         }
 
         initFirebase()
 
-
         binding.btn.setOnClickListener {
             myRef.push().setValue(
                 Room(
-                    "$id 의 방",
+                    "",
                     id,
                     id,
                     4,
@@ -78,14 +90,17 @@ class SecondActivity : AppCompatActivity() {
             Log.d(TAG, "onCreate: $roomList")
         }
 
-    }
 
+        binding.delete.setOnClickListener {
+            myRef.child("room").child("")
+        }
+    }
 
     private lateinit var childEventListener: ChildEventListener
     private fun initFirebase() {
         val database = Firebase.database
         //Firebase database에서 chat-message를 조회. 없으면 생성.
-        myRef = database.getReference("chat-message")
+        myRef = database.getReference("lair-game").child("room")
 
         childEventListener = object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
