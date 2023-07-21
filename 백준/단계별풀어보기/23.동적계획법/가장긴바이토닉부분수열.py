@@ -1,3 +1,5 @@
+# https://www.acmicpc.net/status?user_id=gaogai2&problem_id=11054&from_mine=1
+# 가장 긴 수열을 찾는 과정을 앞에서 뒤에서 한뒤 합
 n = int(input())
 arr1 = list(map(int, input().split()))
 ans1 = [1 for _ in range(n)]
