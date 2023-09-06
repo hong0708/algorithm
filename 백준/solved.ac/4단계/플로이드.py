@@ -27,5 +27,10 @@ for i in range(1, n + 1):
                     ans[i][j[0]] = w + j[1]
                     heapq.heappush(hq, (j[0], ans[i][j[0]]))
 
+for i in range(n+1):
+    for j in range(n+1):
+        if ans[i][j] == INF:
+            ans[i][j] = 0
+
 for q in range(1, n + 1):
     print(*ans[q][1:])
